@@ -12,7 +12,7 @@ const Hero = () => {
       <Songslist/>
       
     </div>
-    <div className=" lg:mx-20 mx-10 gap-2 grid grid-cols-1">
+    <div className=" lg:mx-20 mx-10 lg:gap-5 grid grid-cols-1">
     <Artist/>
     <MusicPlayer/>
     </div>
