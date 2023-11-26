@@ -20,7 +20,7 @@ const Songslist = () => {
     getApi();
   }, []);
   return (
-    <div className=" card shadow-lg max-h-96 h-full">
+    <div className=" card shadow-lg max-h-96 h-full mt-3">
       <div className="overflow-x-auto">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>

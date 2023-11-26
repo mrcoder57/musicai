@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100">
   <div className="flex-1">
     <Link to="/">
-    <a className="btn btn-ghost text-xl ml-8">Musicai</a></Link>
+    <a className="btn btn-ghost text-xl ml-2">Musicai</a></Link>
   </div>
   <div className="flex-none gap-2">
     <div className="form-control w-full rounded-full ">
