@@ -8,7 +8,7 @@ import { selectSongId } from './redux/songIdSlice';
 
 const MusicPlayer = () => {
   const [song, setSong] = useState({});
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const selectedSongId = useSelector(selectSongId);
   console.log(selectedSongId)
 
@@ -60,7 +60,7 @@ const MusicPlayer = () => {
         <ReactPlayer
           url={song.songUrl}
           playing={isPlaying}
-          controls={false}
+          controls={true}
           width='0'
           height='0'
           style={{ display: 'none' }}
