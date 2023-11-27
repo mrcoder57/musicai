@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";  // Import Axios
 import Cookies from "js-cookie";
-
+import { Link } from 'react-router-dom'
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,9 +67,9 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                <Link className="label-text-alt link link-hover">
                   Register
-                </a>
+                </Link>
               </label>
             </div>
             <div className="form-control mt-6">
