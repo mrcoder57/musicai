@@ -30,8 +30,7 @@ const SongsList = () => {
   };
 
   return (
-    <div className=" card shadow-lg max-h-96 h-full mt-3">
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto card shadow-lg h-64">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>
             <tr>
@@ -60,7 +59,6 @@ const SongsList = () => {
           </tbody>
         </table>
       </div>
-    </div>
   );
 };
 
