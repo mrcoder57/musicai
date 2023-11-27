@@ -85,7 +85,7 @@ const MusicUpload = () => {
       );
       console.log("upload successful", response.data);
       setTimeout(() => {
-        // window.location.href = "/Login";
+        window.location.href = "/";
       }, 3000);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -150,7 +150,7 @@ const MusicUpload = () => {
             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
             disabled={loading}
           >
-            Submit
+         {loading ? "uploading..." : "Submit"}
           </button>
         </div>
       </form>
