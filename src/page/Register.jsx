@@ -106,9 +106,12 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen h-[790px] bg-base-200">
+    
       <div className="hero-content flex-col lg:flex-row">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 md:scale-125 md:mr-[60px] md:mb-[50px] transition ease-in-out">
-          <form className="card-body">
+          
+          <form className="card-body grid grid-cols-2 gap-4">
+          <div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -134,7 +137,10 @@ const Register = () => {
                 className="input input-bordered"
                 required
               />
-            </div> <div className="form-control ">
+            </div>
+            </div>
+            <div>
+             <div className="form-control items-center justify-center">
               <label className="label">
                 <span className="label-text">Image</span>
               </label>
@@ -143,7 +149,7 @@ const Register = () => {
                 accept="image/*"
                 onChange={handleImageUpload}
                 name="image"
-                className="input input-bordered flex justify-evenly h-[200px] w-full"
+                className="input input-bordered flex justify-evenly w-full mx-5 my-2"
                 required
               />
               {imagePublicId && (
@@ -152,6 +158,7 @@ const Register = () => {
                   <code className=" w-full ">{generateImageUrl().slice(0,10)}</code>
                 </div>
               )}
+            </div>
             </div>
             <div className="form-control">
               <label className="label">

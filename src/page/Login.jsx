@@ -67,7 +67,7 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <Link className="label-text-alt link link-hover">
+                <Link to='/register' className="label-text-alt link link-hover">
                   Register
                 </Link>
               </label>
