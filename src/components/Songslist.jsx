@@ -44,15 +44,15 @@ const SongsList = () => {
           <tbody>
             {songs.map((song) => (
               <tr className=" h-10 font-semibold text-xl" key={song.id}>
-                <th>{song.id}</th>
+               <button onClick={() => handlePlayClick(song.id)}>
+                    <img src={play} className="h-8 w-8 mt-2" alt="Play" />
+                  </button>
                 <td className=" text-lg capitalize">{song.title}</td>
                 <td className=" text-lg capitalize">{song.genre}</td>
                 <td className=" text-lg capitalize">{song.artist.username}</td>
                 <td className=" text-lg capitalize">
-                  {/* Pass the song.id to the handlePlayClick function */}
-                  <button onClick={() => handlePlayClick(song.id)}>
-                    <img src={play} className="h-8 w-8" alt="Play" />
-                  </button>
+               
+                  
                 </td>
               </tr>
             ))}
