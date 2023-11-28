@@ -3,6 +3,7 @@ import Songscards from "../components/Songscards";
 import Songslist from "../components/Songslist";
 import Artist from "../components/Artist";
 import MusicPlayer from "../components/MusicPlayer";
+import GenreSlider from "../components/GenreSlider";
 const Hero = () => {
   return (
     <div className="h-full">
@@ -16,6 +17,7 @@ const Hero = () => {
           {" "}
           
           <Artist />
+          <GenreSlider/>
         </div>
         <div className="w-full">
           <MusicPlayer />
