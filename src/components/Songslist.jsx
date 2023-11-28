@@ -8,13 +8,14 @@ import { setSongId } from "./redux/songIdSlice";
 const SongsList = () => {
   const [songs, setSongs] = useState([]);
   const dispatch = useDispatch();
-
+const [loading,setLoading]=useState(true)
   const getApi = async () => {
     try {
       const response = await axios.get(
         "https://musicaibackend-production.up.railway.app/songs"
       );
       setSongs(response.data);
+      setLoading(false)
     } catch (error) {
       console.log(error);
     }
@@ -25,10 +26,20 @@ const SongsList = () => {
   }, []);
 
   const handlePlayClick = (songId) => {
-    // Dispatch the setSongId action with the clicked songId
     dispatch(setSongId(songId));
   };
 
+  {if(loading){
+    return(
+      <div className="flex flex-col gap-5 w-[80%]">
+  <div className="skeleton h-6 w-full"></div>
+  <div className="skeleton h-6 w-full"></div>
+  <div className="skeleton h-6 w-full"></div>
+  <div className="skeleton h-6 w-full"></div>
+  <div className="skeleton h-6 w-full"></div>
+</div>
+    )
+  }}
   return (
       <div className="overflow-x-auto card shadow-lg h-64">
         <table className="table table-xs table-pin-rows table-pin-cols">

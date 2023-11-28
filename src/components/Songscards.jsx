@@ -5,13 +5,14 @@ import axios from "axios";
 
 const Songscards = () => {
     const [data, setData] = useState({ topArtists: [] });
-
+    const [loading,setLoading]=useState(true)
   const getApi = async () => {
     try {
       const response = await axios.get(
         "https://musicaibackend-production.up.railway.app/artist/top/top5"
       );
       setData(response.data);
+      setLoading(false)
     //   console.log(response.data.topArtists);
     } catch (error) {
       console.error(error);
@@ -38,7 +39,13 @@ const Songscards = () => {
       items: 1,
     },
   };
-
+ {if(loading){
+    return(
+      <div className=' mt-8 grid grid-cols-2'>
+      <div className="skeleton lg:w-[450px] h-[250px] w-[320px]"></div>
+      </div>
+    )
+  }}
   return (
     <div className=" lg:w-[450px] h-[250px] w-[320px]">
     <Carousel responsive={responsive} showDots={true} infinite={true}>
