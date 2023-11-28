@@ -7,6 +7,8 @@ import Register from './page/Register'
 import MusicUpload from './page/MusicUpload'
 import { store } from './components/redux/store'
 import { Provider } from 'react-redux';
+
+import ArtistPage from './page/ArtistPage'
 function App() {
  
 
@@ -20,6 +22,7 @@ function App() {
   <Route path='/login' element={<Login/>}/>
   <Route path='/register' element={<Register/>}/>
   <Route path='/upload' element={<MusicUpload/>}/>
+  <Route path='/artist/:id' element={<ArtistPage/>}/>
   </Routes>
   </BrowserRouter>
   </Provider>
