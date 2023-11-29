@@ -30,9 +30,9 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className='mt-20'>
-      <div className='fixed bottom-0 left-0 right-0 bg-gray-900 p-4'>
-        <div className='flex items-center space-x-4'>
+    <div className='mt-20 z-50'>
+      <div className='fixed bottom-0 z-50 left-0 right-0 bg-gray-900 p-4'>
+        <div className='flex items-center space-x-4 z-0'>
           <div className='w-16 h-16 overflow-hidden rounded-md'>
             <img
               src='https://placekitten.com/100/100'
