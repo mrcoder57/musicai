@@ -1,9 +1,5 @@
 {
-    "rewrites": [
-      { "source": "/", "destination": "/" },
-      { "source": "/artist/:id", "destination": "/artist/:id" },
-      { "source": "/genres/:genre", "destination": "/genres/:genre" },
-      { "source": "/Login", "destination": "/Login" }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/:path*", "destination": "/" }
+  ]
+}
