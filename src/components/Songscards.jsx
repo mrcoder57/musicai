@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Songscards = () => {
     const [data, setData] = useState({ topArtists: [] });
@@ -57,7 +58,8 @@ const Songscards = () => {
               <h2 className="card-title">{artist.username}</h2>
               <p>Listen to the top of the artist everyweek</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">listen Now</button>
+                <Link to={`/artist/${artist.id}`}>
+                <button className="btn btn-primary">listen Now</button></Link>
               </div>
             </div>
           </div>
