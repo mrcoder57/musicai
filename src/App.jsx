@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 
 import ArtistPage from './page/ArtistPage'
 import GenrePage from './page/GenrePage'
+import Search from './page/Search'
 function App() {
  
 
@@ -22,6 +23,7 @@ function App() {
   <Route path='/' element={<Hero/>}/>
   <Route path='/login' element={<Login/>}/>
   <Route path='/register' element={<Register/>}/>
+  <Route path='/search' element={<Search/>}/>
   <Route path='/upload' element={<MusicUpload/>}/>
   <Route path='/artist/:id' element={<ArtistPage/>}/>
   <Route path='/genres/:genre' element={<GenrePage/>}/>
