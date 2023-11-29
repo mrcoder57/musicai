@@ -41,7 +41,7 @@ const Navbar = () => {
             placeholder="Search"
             value={searchQuery}
               onChange={handleSearchInputChange}
-            className="input input-bordered w-full lg:mr-40 mr-[-50px] rounded-full lg:block md:block"
+            className="input input-bordered w-full lg:mr-40 mr-[-70px] rounded-full lg:block md:block"
           />
         </div>
         </form>
