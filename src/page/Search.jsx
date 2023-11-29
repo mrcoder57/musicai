@@ -73,7 +73,7 @@ const Search = () => {
         </tbody>
       </table>
     ) : (
-      <p>No search results</p>
+      <p className=' text-center text-3xl '>No search results</p>
     )}
   </div>
   )
