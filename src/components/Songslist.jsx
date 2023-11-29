@@ -31,7 +31,7 @@ const [loading,setLoading]=useState(true)
 
   {if(loading){
     return(
-      <div className="flex flex-col gap-5 w-[80%]">
+      <div className="flex flex-col w-[80%] mt-8 lg:mt-0 gap-6">
   <div className="skeleton h-6 w-full"></div>
   <div className="skeleton h-6 w-full"></div>
   <div className="skeleton h-6 w-full"></div>
@@ -41,7 +41,7 @@ const [loading,setLoading]=useState(true)
     )
   }}
   return (
-      <div className="overflow-x-auto card shadow-lg h-64">
+      <div className="overflow-x-hidden ml-2 card shadow-lg h-64">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>
             <tr>
@@ -55,7 +55,7 @@ const [loading,setLoading]=useState(true)
           <tbody>
             {songs.map((song) => (
               <tr className=" h-10 font-semibold text-xl" key={song.id}>
-               <button onClick={() => handlePlayClick(song.id)}>
+               <button className=" h-10 w-10" onClick={() => handlePlayClick(song.id)}>
                     <img src={play} className="h-8 w-8 mt-2" alt="Play" />
                   </button>
                 <td className=" text-lg capitalize">{song.title}</td>
