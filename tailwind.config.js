@@ -2,7 +2,9 @@
 export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: ['hover', 'focus'],
+    },
   },
   daisyui: {
     themes: [ "dracula","dim"],
