@@ -8,11 +8,11 @@ const Hero = () => {
   return (
     <div className="h-full">
      
-      <div className="mt-16 lg:mx-16 md:mx-5 mx-6 grid gap-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1">
+      <div className="lg:mt-16 mt-8 lg:mx-16 md:mx-5 mx-6 grid gap-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1">
         <Songscards />
         <Songslist />
       </div>
-      <div className="lg:mx-20 mx-10 lg:gap-5 grid grid-cols-1">
+      <div className="lg:mx-20 mx-6 lg:gap-5 grid grid-cols-1">
         <div className="mb-5">
           {" "}
           

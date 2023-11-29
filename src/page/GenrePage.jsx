@@ -4,19 +4,19 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setSongId } from "../components/redux/songIdSlice";
-import verified from "../assets/verify.svg";
+import cover from "../assets/coverfinal.png"
 import play from "../assets/play.svg";
 import MusicPlayer from "../components/MusicPlayer";
-const ArtistPage = () => {
-  const [data, setData] = useState({});
+const GenrePage = () => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const { genre } = useParams();
   const dispatch = useDispatch();
-  console.log(id);
+  console.log(genre);
   const getApi = async () => {
     try {
       const response = await axios.get(
-        `https://musicaibackend-production.up.railway.app/artist/${id}`
+        `https://musicaibackend-production.up.railway.app/songs/genres/${genre}`
       );
       setData(response.data);
       console.log(response.data);
@@ -52,17 +52,18 @@ const ArtistPage = () => {
   }
   return (
     <div className=" h-full">
-      <div className=" h-[50%] bg-slate-400 rounded-xl lg:mx-8 mx-4">
+        
+      <div className="bg-img h-[50%] rounded-xl  lg:mx-8 mx-4"   style={{ backgroundImage: `url(${cover})`,backgroundSize: 'cover' }}>
         <div className=" grid lg:grid-cols-3 grid-cols-2 ">
           <img
-            src={data.image}
-            className=" mx-0 rounded-xl w-42 h-44 lg:mx-12 shadow-md lg:mb-5 lg:mt-28 "
+            src=""
+            className=" mx-0 rounded-xl w-42 h-44 lg:mx-12 lg:mb-5 lg:mt-28 "
           />
 
-          <div className=" lg:mt-28 lg:ml[-100px] md:ml-[-100px] text-white">
-            <p className=" lg:ml-3 text-lg font-semibold">Artist</p>
+          <div className=" lg:mt-28 lg:ml[-100px] md:ml-[-100px] text-white shadow-md">
+            <p className=" lg:ml-3 text-lg font-semibold">Genre</p>
             <h3 className="mt-4 lg:mt-0 lg:text-8xl text-2xl capitalize font-bold ">
-              {data.username}
+             {genre}
             </h3>
           </div>
         </div>
@@ -80,7 +81,7 @@ const ArtistPage = () => {
             </tr>
           </thead>
           <tbody>
-            {data.songs.map((song) => (
+            {data.map((song) => (
               <tr>
                 <th className=" h-full w-32">
                   <button className=" w-12 h-12" onClick={() => handlePlayClick(song.id)}>
@@ -106,7 +107,7 @@ const ArtistPage = () => {
                   {song.genre}
                   <br />
                 </td>
-                <td>{data.username}</td>
+                <td className=" capitalize">{song.artist.username}</td>
                 <th></th>
               </tr>
             ))}
@@ -118,4 +119,4 @@ const ArtistPage = () => {
   );
 };
 
-export default ArtistPage;
+export default GenrePage;
