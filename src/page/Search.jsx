@@ -5,6 +5,7 @@ import play from "../assets/play.svg";
 import { useDispatch } from 'react-redux';
 import { setSongId } from "../components/redux/songIdSlice";
 import { useSearchParams } from 'react-router-dom';
+import MusicPlayer from '../components/MusicPlayer';
 
 const Search = () => {
     const [songs, setSongs] = useState([]);
@@ -36,16 +37,19 @@ const Search = () => {
   
     {if(loading){
       return(
-        <div className="flex flex-col w-[80%] mt-8 lg:mt-0 gap-6">
-    <div className="skeleton h-6 w-full"></div>
-    <div className="skeleton h-6 w-full"></div>
-    <div className="skeleton h-6 w-full"></div>
-    <div className="skeleton h-6 w-full"></div>
-    <div className="skeleton h-6 w-full"></div>
+        <div className="flex flex-col w-[full] mt-8 lg:mt-0 gap-6 mx-8">
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
+    <div className="skeleton h-10 w-full"></div>
   </div>
       )
     }}
   return (
+    <div className=' h-full'>
     <div className="overflow-x-hidden ml-2 card shadow-lg h-64">
     {songs.length > 0 ? (
       <table className="table table-xs table-pin-rows table-pin-cols">
@@ -75,6 +79,8 @@ const Search = () => {
     ) : (
       <p className=' text-center text-3xl '>No search results</p>
     )}
+  </div>
+  <MusicPlayer/>
   </div>
   )
 }
