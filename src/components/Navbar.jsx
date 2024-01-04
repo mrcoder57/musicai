@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 
 import avatar from "../assets/cactus.svg"
+import musicial from "../assets/musicial.png"
 const LoginComp = () => {
   return (
     <div>
@@ -30,9 +31,12 @@ const Navbar = () => {
   };
   return (
     <div className="navbar bg-base-100">
-      <div className="flex-1">
+      <div className="flex-1 ">
         <Link to="/">
-          <a className="btn btn-ghost text-xl ml-2">Musicai</a>
+          <div className=" flex flex-row">
+          <img src={musicial} alt="" className=" lg:h-20 lg:w-20 h-14 w-14 "/>
+          <p className="btn btn-ghost text-xl mt-2 hidden lg:flex md:flex">Musicai</p>
+          </div>
         </Link>
       </div>
       <div className="flex-none gap-2">
