@@ -1,32 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player';
 import play from '../assets/play.svg';
 import pause from '../assets/pause.svg';
-import { useSelector } from 'react-redux';
-import { selectSongId } from './redux/songIdSlice';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { selectSongId, setSongId } from './redux/songIdSlice';
+import next from "../assets/nextskip.svg"
 const MusicPlayer = () => {
   const [song, setSong] = useState({});
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [queue, setQueue] = useState([]);
   const selectedSongId = useSelector(selectSongId);
-  console.log(selectedSongId)
+  const dispatch = useDispatch();
+  const playerRef = useRef(null);
 
   const getApi = async () => {
     try {
       const response = await axios.get(`https://musicaibackend-production.up.railway.app/songs/${selectedSongId}`);
       setSong(response.data);
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
   };
 
+  const addToQueue = async() => {
+    try {
+      const songs=await axios.get("https://musicaibackend-production.up.railway.app/songs/")
+      setQueue(songs.data)
+    } catch (error) {
+      console.log(error)
+    }
+  };
   useEffect(() => {
-    getApi();
-  }, [selectedSongId]);
+    addToQueue()
+  }, []);
+
+
+  const playNext = () => {
+    const newQueue = [...queue];
+    const nextSong = newQueue.shift();
+    setQueue(newQueue);
+    setSong(nextSong);
+   setIsPlaying(true)
+  };
 
   const playPauseHandler = () => {
     setIsPlaying(!isPlaying);
+  };
+
+
+
+  useEffect(() => {
+    getApi();
+  }, [selectedSongId]);
+  const handleOnEnded = () => {
+    playNext();
   };
 
   return (
@@ -43,7 +72,11 @@ const MusicPlayer = () => {
 
           <div className='flex-1'>
             <h3 className='text-white font-semibold'>{song.title}</h3>
-            <p className='text-gray-400'>Artist Name</p>
+            {song.artist && song.artist.username ? (
+              <p className='text-gray-400'>{song.artist.username}</p>
+            ) : (
+              <p className='text-gray-400'>Artist Name</p>
+            )}
           </div>
 
           <div className='flex items-center space-x-4'>
@@ -54,16 +87,21 @@ const MusicPlayer = () => {
                 <img src={play} className='h-10 w-10' alt='Play' />
               )}
             </button>
+            <button className='text-white' onClick={playNext} disabled={queue.length === 0}>
+            <img src={next} className='h-10 w-10' alt='next' />
+            </button>
           </div>
         </div>
 
         <ReactPlayer
+          ref={playerRef}
           url={song.songUrl}
           playing={isPlaying}
           controls={true}
           width='0'
           height='0'
           style={{ display: 'none' }}
+          onEnded={handleOnEnded}
         />
       </div>
     </div>

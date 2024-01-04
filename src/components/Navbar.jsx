@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie";
 import { useState } from "react";
+
+import avatar from "../assets/cactus.svg"
 const LoginComp = () => {
   return (
     <div>
@@ -50,7 +52,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={avatar}
               />
             </div>
           </label>
