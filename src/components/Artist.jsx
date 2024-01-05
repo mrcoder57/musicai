@@ -50,7 +50,9 @@ const Artist = () => {
   return (
     <div className='mt-8 mx-0'>
     <h2 className='mb-8 text-3xl font-bold'>Every Artist</h2>
-    <Carousel responsive={responsive}>
+    <Carousel responsive={responsive}
+    removeArrowOnDeviceType={["tablet", "mobile"]}
+    >
       {data.allArtists &&
         data.allArtists.map((artist, index) => (
           <Link to={`artist/${artist.id}`} >

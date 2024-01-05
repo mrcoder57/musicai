@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { musicGenres } from "../constants";
 
 const MusicUpload = () => {
   const [title, setTitle] = useState("");
@@ -68,7 +69,7 @@ const MusicUpload = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const musicUrl = generateMusicUrl();
-    console.log(musicUrl)
+    console.log(musicUrl);
     if (!title || !genre || !musicUrl) {
       console.log("please fill complete information");
     }
@@ -116,21 +117,23 @@ const MusicUpload = () => {
           />
         </div>
 
-        {/* Genre Input */}
         <div className="mb-4">
           <label htmlFor="genre" className="block text-sm font-medium">
             Genre
           </label>
-          <input
-            type="text"
+          <select
             id="genre"
             name="genre"
             className="mt-1 p-2 w-full border rounded-md"
             onChange={(e) => setGenre(e.target.value)}
             value={genre}
-          />
+          >
+           
+            {musicGenres.map((genre)=>(
+               <option value={genre.title}>{genre.title}</option>
+            ))}
+          </select>
         </div>
-
         <div className="mb-4 flex items-center">
           <label htmlFor="music" className="block text-sm font-medium">
             Upload Music
@@ -150,7 +153,7 @@ const MusicUpload = () => {
             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
             disabled={loading}
           >
-         {loading ? "uploading..." : "Submit"}
+            {loading ? "upload" : "Submit"}
           </button>
         </div>
       </form>
