@@ -96,7 +96,12 @@ const MusicPlayer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-white font-semibold">{song.title.slice(0,20)}</h3>
+          {song && song.title ? (
+             <h3 className="text-white font-semibold">{song.title.slice(0,12)}</h3>
+            ) : (
+              <h3 className="text-white font-semibold">title</h3>
+            )}
+            
             {song.artist && song.artist.username ? (
               <p className="text-gray-400">{song.artist.username}</p>
             ) : (
