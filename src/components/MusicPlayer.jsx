@@ -96,7 +96,7 @@ const MusicPlayer = () => {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-white font-semibold">{song.title}</h3>
+            <h3 className="text-white font-semibold">{song.title.slice(0,20)}</h3>
             {song.artist && song.artist.username ? (
               <p className="text-gray-400">{song.artist.username}</p>
             ) : (
@@ -104,8 +104,8 @@ const MusicPlayer = () => {
             )}
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-44 ">
+          <div className="flex lg:flex-row flex-col items-center space-x-4">
+            <div className="lg:w-44 w-28">
               <progress
               value={played * 100}
               max={100}
@@ -115,7 +115,8 @@ const MusicPlayer = () => {
               onMouseUp={handleSeekMouseUp}
               />
             </div>
-            <button className="text-white" onClick={playPauseHandler}>
+            <div className=" ">
+            <button className="text-white mr-2" onClick={playPauseHandler}>
               {isPlaying ? (
                 <img src={pause} className="h-12 w-12" alt="Pause" />
               ) : (
@@ -129,6 +130,7 @@ const MusicPlayer = () => {
             >
               <img src={next} className="h-10 w-10" alt="next" />
             </button>
+            </div>
           </div>
         </div>
 
