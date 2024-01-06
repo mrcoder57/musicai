@@ -11,7 +11,7 @@ const Artist = () => {
     const getApi = async () => {
       try {
         const response = await axios.get(
-          "https://musicaibackend-production.up.railway.app/artist"
+          "https://musicailbackend.onrender.com/artist"
         );
         setData(response.data);
         console.log(response.data);

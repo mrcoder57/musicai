@@ -78,7 +78,7 @@ const Register = () => {
     }
     try {
       const response = await axios.post(
-        "https://musicaibackend-production.up.railway.app/users/register",
+        "https://musicailbackend.onrender.com/users/register",
         {
           email: email,
           username: username,

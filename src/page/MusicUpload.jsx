@@ -76,7 +76,7 @@ const MusicUpload = () => {
 
     try {
       const response = await axios.post(
-        "https://musicaibackend-production.up.railway.app/songs",
+        "https://musicailbackend.onrender.com/songs",
         {
           title: title,
           songUrl: musicUrl,

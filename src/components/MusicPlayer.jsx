@@ -19,7 +19,7 @@ const MusicPlayer = () => {
   const getApi = async () => {
     try {
       const response = await axios.get(
-        `https://musicaibackend-production.up.railway.app/songs/${selectedSongId}`
+        `https://musicailbackend.onrender.com/songs/${selectedSongId}`
       );
       setSong(response.data);
       console.log(response.data);
@@ -31,7 +31,7 @@ const MusicPlayer = () => {
   const addToQueue = async () => {
     try {
       const songs = await axios.get(
-        "https://musicaibackend-production.up.railway.app/songs/"
+        "https://musicailbackend.onrender.com/songs/"
       );
       setQueue(songs.data);
     } catch (error) {

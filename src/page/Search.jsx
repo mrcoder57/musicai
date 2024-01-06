@@ -17,7 +17,7 @@ const Search = () => {
     const getApi = async () => {
       try {
         const response = await axios.get(
-          `https://musicaibackend-production.up.railway.app/songs/search?q=${query}`
+          `https://musicailbackend.onrender.com/songs/search?q=${query}`
         );
         setSongs(response.data);
         console.log(response.data)

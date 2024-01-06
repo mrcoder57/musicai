@@ -16,7 +16,7 @@ const GenrePage = () => {
   const getApi = async () => {
     try {
       const response = await axios.get(
-        `https://musicaibackend-production.up.railway.app/songs/genres/${genre}`
+        `https://musicailbackend.onrender.com/songs/genres/${genre}`
       );
       setData(response.data);
       console.log(response.data);
